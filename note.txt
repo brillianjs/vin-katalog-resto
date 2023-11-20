@@ -1,0 +1,3 @@
+terakhir sampe menampilkan konten dari API
+ngotak ngatik template-creator.js sama views page, homeResto
+masih belum jalan, nampilin list resto
