@@ -2,6 +2,7 @@ import {
   createLikeButtonTemplate,
   createUnlikeButtonTemplate,
 } from "../views/template/template-creator";
+import { initSwalError, initSwalSuccess } from "./swal-initiator";
 
 const LikeButtonPresenter = {
   async init({ likeButtonContainer, favoriteRestaurants, restaurant }) {
@@ -11,18 +12,35 @@ const LikeButtonPresenter = {
     await this._renderButton();
   },
 
-  async _renderButton() {
-    const { id } = this._restaurant;
+  // async _renderButton() {
+  //   const { id } = this._restaurant;
 
-    if (await this._isRestaurantExist(id)) {
-      this._renderLikedButton();
-    } else {
-      this._renderLikeButton();
+  //   if (await this._isRestaurantExist(id)) {
+  //     this._renderLikedButton();
+  //   } else {
+  //     this._renderLikeButton();
+  //   }
+  // },
+
+  async _renderButton() {
+    try {
+      const { id } = this._restaurant;
+
+      if (await this._isRestaurantExist(id)) {
+        this._renderLikedButton();
+      } else {
+        this._renderLikeButton();
+      }
+    } catch (err) {
+      console.error(err);
+      initSwalError(err.message);
+
+      throw new Error(err);
     }
   },
 
   async _isRestaurantExist(id) {
-    const restaurant = await this._favoriteRestaurants.getRestaurant(id);
+    const restaurant = await this._favoriteRestaurants.getResto(id);
     return !!restaurant;
   },
 
@@ -31,7 +49,8 @@ const LikeButtonPresenter = {
 
     const likeButton = document.getElementById("likeButton");
     likeButton.addEventListener("click", async () => {
-      await this._favoriteRestaurants.putRestaurant(this._restaurant);
+      await this._favoriteRestaurants.putResto(this._restaurant);
+      initSwalSuccess("Resto favorited!");
       this._renderButton();
     });
   },
@@ -41,7 +60,8 @@ const LikeButtonPresenter = {
 
     const likedButton = document.getElementById("likeButton");
     likedButton.addEventListener("click", async () => {
-      await this._favoriteRestaurants.deleteRestaurant(this._restaurant.id);
+      await this._favoriteRestaurants.deleteResto(this._restaurant.id);
+      initSwalSuccess("Resto unfavorited!");
       this._renderButton();
     });
   },

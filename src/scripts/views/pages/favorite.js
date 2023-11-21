@@ -15,12 +15,12 @@ const Favorite = {
   },
 
   async afterRender() {
-    const restaurants = await FavoriteRestaurantIdb.getAllRestaurant();
+    const restaurants = await FavoriteRestaurantIdb.getAllResto();
     const restaurantContainer = document.getElementById("main-resto_list");
     const empty = document.querySelector(".restaurant-item__not__found");
     if (restaurants.length === 0) {
       empty.innerHTML = `
-      <h3>Tidak ada favorite restaurant yang ditampilkan</h3>
+      <h3>Empty favorite Resto. Put one, by clicking heart button in the detail page.</h3>
       `;
     }
 

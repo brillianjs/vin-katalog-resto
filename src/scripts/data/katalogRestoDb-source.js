@@ -11,7 +11,8 @@ class katalogRestoDbSource {
           "Error fetching home restaurant list:",
           responseJson.message
         );
-        return null; // Return null or handle the error appropriately
+        return null; 
+        // Return null or handle the error appropriately
       }
 
       return responseJson.restaurants || []; // Make sure to return an array
