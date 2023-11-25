@@ -1,9 +1,9 @@
-import RestaurantSource from "../../data/katalogRestoDb-source";
-import UrlParser from "../../routes/url-parser";
-import LikeButtonPresenter from "../../utils/like-button-presenter";
-import FavoriteRestaurantIdb from "../../data/favorite-resto-idb";
-import { createRestaurantDetailTemplate } from "../template/template-creator";
-import PostReview from "../../utils/post-review";
+import RestaurantSource from '../../data/katalogRestoDb-source'
+import UrlParser from '../../routes/url-parser'
+import LikeButtonPresenter from '../../utils/like-button-presenter'
+import FavoriteRestaurantIdb from '../../data/favorite-resto-idb'
+import { createRestaurantDetailTemplate } from '../template/template-creator'
+import PostReview from '../../utils/post-review'
 
 const Detail = {
   async render() {
@@ -28,19 +28,19 @@ const Detail = {
     </form>
   </div>
   
-      `;
+      `
   },
 
   async afterRender() {
-    const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const restaurant = await RestaurantSource.restoDetail(url.id);
-    const restaurantContainer = document.querySelector("#detail-rest");
+    const url = UrlParser.parseActiveUrlWithoutCombiner()
+    const restaurant = await RestaurantSource.restoDetail(url.id)
+    const restaurantContainer = document.querySelector('#detail-rest')
     restaurantContainer.innerHTML = createRestaurantDetailTemplate(
       restaurant.restaurant
-    );
+    )
 
     LikeButtonPresenter.init({
-      likeButtonContainer: document.querySelector("#likeButtonContainer"),
+      likeButtonContainer: document.querySelector('#likeButtonContainer'),
       favoriteRestaurants: FavoriteRestaurantIdb,
       restaurant: {
         id: restaurant.restaurant.id,
@@ -48,16 +48,16 @@ const Detail = {
         city: restaurant.restaurant.city,
         pictureId: restaurant.restaurant.pictureId,
         description: restaurant.restaurant.description,
-        rating: restaurant.restaurant.rating,
-      },
-    });
+        rating: restaurant.restaurant.rating
+      }
+    })
 
-    const submitReview = document.getElementById("submit-review");
-    submitReview.addEventListener("click", (event) => {
-      event.preventDefault();
-      PostReview();
-    });
-  },
-};
+    const submitReview = document.getElementById('submit-review')
+    submitReview.addEventListener('click', (event) => {
+      event.preventDefault()
+      PostReview()
+    })
+  }
+}
 
-export default Detail;
+export default Detail

@@ -1,20 +1,23 @@
-import "regenerator-runtime"; /* for async await transpile */
-import "../styles/main.css";
-import "../styles/responsive.css";
-import App from "./views/app";
-import swRegister from "./utils/sw-register";
+import 'regenerator-runtime' /* for async await transpile */
+import '../styles/main.css'
+import '../styles/responsive.css'
+import App from './views/app'
+import swRegister from './utils/sw-register'
 
 const app = new App({
-  button: document.querySelector("#menu"),
-  drawer: document.querySelector("#drawer"),
-  content: document.querySelector("#mainContent"),
-});
+  button: document.querySelector('#menu'),
+  drawer: document.querySelector('#drawer'),
+  content: document.querySelector('#mainContent')
+})
 
-window.addEventListener("hashchange", () => {
-  app.renderPage();
-});
+const handleHashChange = () => {
+  app.renderPage()
+}
 
-window.addEventListener("load", () => {
-  app.renderPage();
-  swRegister();
-});
+const handleLoad = () => {
+  app.renderPage()
+  swRegister()
+}
+
+window.addEventListener('hashchange', handleHashChange)
+window.addEventListener('load', handleLoad)

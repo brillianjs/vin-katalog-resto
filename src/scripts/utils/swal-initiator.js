@@ -1,21 +1,21 @@
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2'
 
 const initSwalSuccess = (title) => {
   Swal.fire({
     title,
     toast: true,
-    icon: "success",
-    confirmButtonText: "Ok",
-  });
-};
+    icon: 'success',
+    confirmButtonText: 'Ok'
+  })
+}
 
 const initSwalError = (title) => {
   Swal.fire({
     title,
     toast: true,
-    icon: "error",
-    confirmButtonText: "Ok",
-  });
-};
+    icon: 'error',
+    confirmButtonText: 'Ok'
+  })
+}
 
-export { initSwalSuccess, initSwalError };
+export { initSwalSuccess, initSwalError }

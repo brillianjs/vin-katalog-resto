@@ -5,12 +5,13 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 12px;
   color: #424242;
 }
@@ -108,7 +109,7 @@ body, html {
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(rgba(0, 0, 5, 0.2), rgba(0, 0, 5, 0.5)),
-    url("../public/images/heros/hero-image_4.jpg");
+    url('../public/images/heros/hero-image_4.jpg');
 }
 
 .hero__inner {
@@ -282,8 +283,6 @@ footer {
   align-items: start;
   padding: 20px;
   gap: 20px;
-  
-  
 }
 
 /* Main Restaurant Container Styles */
@@ -381,12 +380,16 @@ textarea.form-control {
 }
 
 /* Resto Name, Address, and Rating Styles */
-.resto-name, .resto-address, .resto-rating {
+.resto-name,
+.resto-address,
+.resto-rating {
   display: flex;
   align-items: center;
 }
 
-.resto-name i, .resto-address i, .resto-rating i {
+.resto-name i,
+.resto-address i,
+.resto-rating i {
   margin-right: 10px;
 }
 
@@ -396,18 +399,21 @@ textarea.form-control {
 }
 
 /* Foods and Drinks Styles */
-.foods, .drinks {
+.foods,
+.drinks {
   margin-right: 20px;
 }
 
-.restaurant-detail__foods, .restaurant-detail__drinks {
+.restaurant-detail__foods,
+.restaurant-detail__drinks {
   list-style: none;
   padding: 0;
   font-size: 20px;
   color: gray;
 }
 
-.restaurant-detail__foods li, .restaurant-detail__drinks li {
+.restaurant-detail__foods li,
+.restaurant-detail__drinks li {
   margin-bottom: 10px;
 }
 
@@ -458,7 +464,6 @@ textarea.form-control {
   line-height: 1.5;
 }
 
-
 .restaurant-detail__menu-list {
   display: flex;
   gap: 20px;
@@ -488,7 +493,7 @@ textarea.form-control {
   font-size: 1.2em;
 }
 
-.like{
+.like {
   cursor: pointer;
   background: salmon;
   width: min-content;
@@ -501,15 +506,14 @@ textarea.form-control {
   right: 10px;
 }
 
-.like > button{
+.like > button {
   border: none;
 }
 
-h2{
+h2 {
   margin: 50px 0px;
 }
 
-
-.resto-item_image-container{
+.resto-item_image-container {
   width: 100%;
 }

@@ -1,40 +1,30 @@
-import { openDB } from "idb";
-import CONFIG from "../globals/config";
+import { openDB } from 'idb'
+import CONFIG from '../globals/config'
 
-const { DATABASE_NAME, DATABASE_VERSION, OBJECT_STORE_NAME } = CONFIG;
+const { DATABASE_NAME, DATABASE_VERSION, OBJECT_STORE_NAME } = CONFIG
 
-const openIdb = openDB(DATABASE_NAME, DATABASE_VERSION, {
-  upgrade(db) {
-    // Create a store of objects
-    db.createObjectStore(OBJECT_STORE_NAME, {
-      // The 'id' property of the object will be the key.
-      keyPath: "id",
-      // If it isn't explicitly set, create a value by auto incrementing.
-      autoIncrement: true,
-    });
-  },
-});
+const openIdb = openDB(DATABASE_NAME, DATABASE_VERSION, {})
 
 const FavRestoIdb = {
-  // get one resto
+  // Get one restaurant
   async getResto(id) {
-    return (await openIdb).get(OBJECT_STORE_NAME, id);
+    return (await openIdb).get(OBJECT_STORE_NAME, id)
   },
 
-  // get all resto
+  // Get all restaurants
   async getAllResto() {
-    return (await openIdb).getAll(OBJECT_STORE_NAME);
+    return (await openIdb).getAll(OBJECT_STORE_NAME)
   },
 
-  // put resto
+  // Put restaurant
   async putResto(resto) {
-    return (await openIdb).put(OBJECT_STORE_NAME, resto);
+    return (await openIdb).put(OBJECT_STORE_NAME, resto)
   },
 
-  // delete resto
+  // Delete restaurant
   async deleteResto(id) {
-    return (await openIdb).delete(OBJECT_STORE_NAME, id);
-  },
-};
+    return (await openIdb).delete(OBJECT_STORE_NAME, id)
+  }
+}
 
-export default FavRestoIdb;
+export default FavRestoIdb

@@ -1,5 +1,5 @@
-import RestaurantSource from "../../data/katalogRestoDb-source";
-import { createRestaurantItemTemplate } from "../template/template-creator";
+import RestaurantSource from '../../data/katalogRestoDb-source'
+import { createRestaurantItemTemplate } from '../template/template-creator'
 
 const Restaurant = {
   async render() {
@@ -10,17 +10,17 @@ const Restaurant = {
         </h2>
         <div id="main-resto_list" class="list-resto"></div>        
     </main>
-        `;
+        `
   },
 
   async afterRender() {
-    const restaurants = await RestaurantSource.homeRestoKatalog();
-    const restaurantContainer = document.querySelector(".list-resto");
+    const restaurants = await RestaurantSource.homeRestoKatalog()
+    const restaurantContainer = document.querySelector('.list-resto')
 
     restaurants.forEach((restaurant) => {
-      restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant);
-    });
-  },
-};
+      restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant)
+    })
+  }
+}
 
-export default Restaurant;
+export default Restaurant
