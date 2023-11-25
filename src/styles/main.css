@@ -86,7 +86,7 @@ html {
 
 /* Skip Content Styles */
 .skip__content {
-  position: fixed;
+  position: absolute;
   top: 0px;
   left: 0;
   background-color: #bf1722;
