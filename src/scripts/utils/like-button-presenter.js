@@ -12,16 +12,6 @@ const LikeButtonPresenter = {
     await this._renderButton()
   },
 
-  // async _renderButton() {
-  //   const { id } = this._restaurant;
-
-  //   if (await this._isRestaurantExist(id)) {
-  //     this._renderLikedButton();
-  //   } else {
-  //     this._renderLikeButton();
-  //   }
-  // },
-
   async _renderButton() {
     try {
       const { id } = this._restaurant

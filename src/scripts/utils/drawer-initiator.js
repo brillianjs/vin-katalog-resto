@@ -21,16 +21,3 @@ const DrawerInitiator = {
 }
 
 export default DrawerInitiator
-
-// menu.addEventListener('click', (event) => {
-//   drawer.classList.toggle('open');
-//   event.stopPropagation();
-// });
-
-// hero.addEventListener('click', () => {
-//   drawer.classList.remove('open');
-// });
-
-// main.addEventListener('click', () => {
-//   drawer.classList.remove('open');
-// });
