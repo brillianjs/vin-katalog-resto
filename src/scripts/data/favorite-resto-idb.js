@@ -3,7 +3,12 @@ import CONFIG from '../globals/config'
 
 const { DATABASE_NAME, DATABASE_VERSION, OBJECT_STORE_NAME } = CONFIG
 
-const openIdb = openDB(DATABASE_NAME, DATABASE_VERSION, {})
+const openIdb = openDB(DATABASE_NAME, DATABASE_VERSION, {
+  upgrade(database) {
+    // Code for upgrading the database goes here
+    database.createObjectStore(OBJECT_STORE_NAME, { keyPath: 'id' })
+  }
+})
 
 const FavRestoIdb = {
   // Get one restaurant
